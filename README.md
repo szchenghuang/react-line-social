@@ -15,16 +15,16 @@ npm install react-line-social --save
 ```js
 import { Share, Friend, Like } from 'react-line-social';
 
-<Share url="https://media.line.me" />
+<Share />
 
 <Friend lineid="@lineteamjp" />
 <Friend lineid="@lineteamjp" count />
 <Friend lineid="@lineteamjp" home />
 <Friend lineid="@lineteamjp" count home />
 
-<Like url="https://media.line.me" />
-<Like url="https://media.line.me" share />
-<Like url="https://media.line.me" lineid="@lineteamjp" />
+<Like />
+<Like share />
+<Like lineid="@lineteamjp" />
 ```
 
 ## License ##
