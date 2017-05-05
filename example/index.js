@@ -9,7 +9,7 @@ window.onload = () => {
     <div>
       <div>
         <h3>Share</h3>
-        <Share url="https://media.line.me" />
+        <Share />
       </div>
       <div>
         <h3>Friend</h3>
@@ -20,9 +20,9 @@ window.onload = () => {
       </div>
       <div>
         <h3>Like</h3>
-        <Like url="https://media.line.me" /><br />
-        <Like url="https://media.line.me" share /><br />
-        <Like url="https://media.line.me" lineid="@lineteamjp" />
+        <Like /><br />
+        <Like share /><br />
+        <Like lineid="@lineteamjp" />
       </div>
     </div>,
     document.querySelector( '#container' )

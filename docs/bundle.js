@@ -77,7 +77,7 @@
 	        null,
 	        'Share'
 	      ),
-	      _react2.default.createElement(_.Share, { url: 'https://media.line.me' })
+	      _react2.default.createElement(_.Share, null)
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -103,11 +103,11 @@
 	        null,
 	        'Like'
 	      ),
-	      _react2.default.createElement(_.Like, { url: 'https://media.line.me' }),
+	      _react2.default.createElement(_.Like, null),
 	      _react2.default.createElement('br', null),
-	      _react2.default.createElement(_.Like, { url: 'https://media.line.me', share: true }),
+	      _react2.default.createElement(_.Like, { share: true }),
 	      _react2.default.createElement('br', null),
-	      _react2.default.createElement(_.Like, { url: 'https://media.line.me', lineid: '@lineteamjp' })
+	      _react2.default.createElement(_.Like, { lineid: '@lineteamjp' })
 	    )
 	  ), document.querySelector('#container'));
 	};
@@ -21884,7 +21884,7 @@
 /* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -21948,7 +21948,7 @@
 	  _createClass(Share, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      if (!global.script) {
+	      if (!_utils2.default.getScript()) {
 	        var script = document.createElement('script');
 	        script.id = 'recaptcha';
 	        script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
@@ -21962,7 +21962,7 @@
 	          window.LineIt.loadButton();
 	        };
 	        document.body.appendChild(script);
-	        global.script = script;
+	        _utils2.default.setScript(script);
 	      }
 	    }
 	  }, {
@@ -21977,7 +21977,7 @@
 	        className: 'line-it-button',
 	        'data-lang': _utils2.default.localeToLang(locale),
 	        'data-type': 'share-a',
-	        'data-url': url });
+	        'data-url': location.href });
 	    }
 	  }]);
 
@@ -21985,8 +21985,7 @@
 	}(_react2.default.Component);
 
 	Share.propTypes = {
-	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
-	  url: _propTypes2.default.string.isRequired
+	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id'])
 	};
 
 	Share.defaultProps = {
@@ -21994,7 +21993,6 @@
 	};
 
 	exports.default = Share;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
 /* 186 */
@@ -22102,9 +22100,19 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	var lineScript = void 0;
+
 	var Utils = {
 	  localeToLang: function localeToLang(locale) {
 	    return 'zh-TW' === locale ? 'zh_Hant' : locale;
+	  },
+	  setScript: function setScript(script) {
+	    if (!lineScript) {
+	      lineScript = script;
+	    }
+	  },
+	  getScript: function getScript() {
+	    return lineScript;
 	  }
 	};
 
@@ -22114,7 +22122,7 @@
 /* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -22188,7 +22196,7 @@
 	  _createClass(Friend, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      if (!global.script) {
+	      if (!_utils2.default.getScript()) {
 	        var script = document.createElement('script');
 	        script.id = 'recaptcha';
 	        script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
@@ -22199,7 +22207,7 @@
 	          throw error;
 	        };
 	        document.body.appendChild(script);
-	        global.script = script;
+	        _utils2.default.setScript(script);
 	      }
 	    }
 	  }, {
@@ -22236,13 +22244,12 @@
 	};
 
 	exports.default = Friend;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
 /* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -22316,7 +22323,7 @@
 	  _createClass(Like, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      if (!global.script) {
+	      if (!_utils2.default.getScript()) {
 	        var script = document.createElement('script');
 	        script.id = 'recaptcha';
 	        script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
@@ -22327,7 +22334,7 @@
 	          throw error;
 	        };
 	        document.body.appendChild(script);
-	        global.script = script;
+	        _utils2.default.setScript(script);
 	      }
 	    }
 	  }, {
@@ -22344,7 +22351,7 @@
 	        className: 'line-it-button',
 	        'data-lang': _utils2.default.localeToLang(locale),
 	        'data-type': 'like',
-	        'data-url': url
+	        'data-url': location.href
 	      }, share && { 'data-share': 'true' }, lineid && { 'data-lineid': lineid }));
 	    }
 	  }]);
@@ -22354,7 +22361,6 @@
 
 	Like.propTypes = {
 	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
-	  url: _propTypes2.default.string.isRequired,
 	  share: _propTypes2.default.bool,
 	  lineid: _propTypes2.default.string
 	};
@@ -22364,7 +22370,6 @@
 	};
 
 	exports.default = Like;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ })
 /******/ ]);
