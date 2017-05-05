@@ -6,7 +6,7 @@ import Utils from './utils';
 
 class Friend extends React.Component {
   componentDidMount() {
-    if ( !global.script ) {
+    if ( !Utils.getScript() ) {
       const script = document.createElement( 'script' );
       script.id = 'recaptcha';
       script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
@@ -15,7 +15,7 @@ class Friend extends React.Component {
       script.defer = true;
       script.onerror = function( error ) { throw error; };
       document.body.appendChild( script );
-      global.script = script;
+      Utils.setScript( script );
     }
   }
   render() {

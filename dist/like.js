@@ -40,7 +40,7 @@ var Like = function (_React$Component) {
   _createClass(Like, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (!global.script) {
+      if (!_utils2.default.getScript()) {
         var script = document.createElement('script');
         script.id = 'recaptcha';
         script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
@@ -51,7 +51,7 @@ var Like = function (_React$Component) {
           throw error;
         };
         document.body.appendChild(script);
-        global.script = script;
+        _utils2.default.setScript(script);
       }
     }
   }, {

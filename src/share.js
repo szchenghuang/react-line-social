@@ -6,7 +6,7 @@ import Utils from './utils';
 
 class Share extends React.Component {
   componentDidMount() {
-    if ( !global.script ) {
+    if ( !Utils.getScript() ) {
       const script = document.createElement( 'script' );
       script.id = 'recaptcha';
       script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
@@ -16,7 +16,7 @@ class Share extends React.Component {
       script.onerror = function( error ) { throw error; };
       script.onload = function() { window.LineIt.loadButton(); };
       document.body.appendChild( script );
-      global.script = script;
+      Utils.setScript( script );
     }
   }
   render() {

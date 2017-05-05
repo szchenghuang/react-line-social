@@ -38,7 +38,7 @@ var Share = function (_React$Component) {
   _createClass(Share, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (!global.script) {
+      if (!_utils2.default.getScript()) {
         var script = document.createElement('script');
         script.id = 'recaptcha';
         script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
@@ -52,7 +52,7 @@ var Share = function (_React$Component) {
           window.LineIt.loadButton();
         };
         document.body.appendChild(script);
-        global.script = script;
+        _utils2.default.setScript(script);
       }
     }
   }, {
