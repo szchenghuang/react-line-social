@@ -68,7 +68,7 @@ var Like = function (_React$Component) {
         className: 'line-it-button',
         'data-lang': _utils2.default.localeToLang(locale),
         'data-type': 'like',
-        'data-url': location.href
+        'data-url': url || location.href
       }, share && { 'data-share': 'true' }, lineid && { 'data-lineid': lineid }));
     }
   }]);
@@ -79,7 +79,8 @@ var Like = function (_React$Component) {
 Like.propTypes = {
   locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
   share: _propTypes2.default.bool,
-  lineid: _propTypes2.default.string
+  lineid: _propTypes2.default.string,
+  url: _propTypes2.default.string
 };
 
 Like.defaultProps = {

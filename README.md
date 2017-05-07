@@ -15,6 +15,11 @@ npm install react-line-social --save
 ```js
 import { Share, Friend, Like } from 'react-line-social';
 
+// Or cherry-pick import.
+import Share from 'react-line-social/share';
+import Friend from 'react-line-social/friend';
+import Like from 'react-line-social/like';
+
 <Share />
 
 <Friend lineid="@lineteamjp" />
@@ -26,6 +31,9 @@ import { Share, Friend, Like } from 'react-line-social';
 <Like share />
 <Like lineid="@lineteamjp" />
 ```
+
+## Configuration ##
+`Share` and `Like` components accept an optional `url` prop. When `url` is absent, `window.location.href` will be referenced.
 
 ## License ##
 

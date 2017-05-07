@@ -26,7 +26,7 @@ class Like extends React.Component {
         className="line-it-button"
         data-lang={ Utils.localeToLang( locale ) }
         data-type="like"
-        data-url={ location.href }
+        data-url={ url || location.href }
         { ...( share && { 'data-share': 'true' } ) }
         { ...( lineid && { 'data-lineid': lineid } ) } />
     );
@@ -36,7 +36,8 @@ class Like extends React.Component {
 Like.propTypes = {
   locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
   share: PropTypes.bool,
-  lineid: PropTypes.string
+  lineid: PropTypes.string,
+  url: PropTypes.string
 };
 
 Like.defaultProps = {

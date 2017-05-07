@@ -67,7 +67,7 @@ var Share = function (_React$Component) {
         className: 'line-it-button',
         'data-lang': _utils2.default.localeToLang(locale),
         'data-type': 'share-a',
-        'data-url': location.href });
+        'data-url': url || location.href });
     }
   }]);
 
@@ -75,7 +75,8 @@ var Share = function (_React$Component) {
 }(_react2.default.Component);
 
 Share.propTypes = {
-  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id'])
+  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
+  url: _propTypes2.default.string
 };
 
 Share.defaultProps = {

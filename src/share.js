@@ -27,13 +27,14 @@ class Share extends React.Component {
         className="line-it-button"
         data-lang={ Utils.localeToLang( locale ) }
         data-type="share-a"
-        data-url={ location.href } />
+        data-url={ url || location.href } />
     );
   }
 }
 
 Share.propTypes = {
-  locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] )
+  locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
+  url: PropTypes.string
 };
 
 Share.defaultProps = {
