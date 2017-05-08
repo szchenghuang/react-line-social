@@ -21858,7 +21858,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Like = exports.Friend = exports.Share = undefined;
+	exports.loadButtons = exports.Like = exports.Friend = exports.Share = undefined;
 
 	var _share = __webpack_require__(185);
 
@@ -21872,6 +21872,8 @@
 
 	var _like2 = _interopRequireDefault(_like);
 
+	var _utils = __webpack_require__(188);
+
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -21879,6 +21881,7 @@
 	exports.Share = _share2.default;
 	exports.Friend = _friend2.default;
 	exports.Like = _like2.default;
+	exports.loadButtons = _utils.loadButtons;
 
 /***/ }),
 /* 185 */
@@ -21948,22 +21951,12 @@
 	  _createClass(Share, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      if (!_utils2.default.getScript()) {
-	        var script = document.createElement('script');
-	        script.id = 'recaptcha';
-	        script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
-	        script.type = 'text/javascript';
-	        script.async = true;
-	        script.defer = true;
-	        script.onerror = function (error) {
-	          throw error;
-	        };
-	        script.onload = function () {
-	          window.LineIt.loadButton();
-	        };
-	        document.body.appendChild(script);
-	        _utils2.default.setScript(script);
-	      }
+	      this.componentDidUpdate();
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      _utils2.default.loadButtons();
 	    }
 	  }, {
 	    key: 'render',
@@ -22101,19 +22094,37 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var lineScript = void 0;
+	var scriptLoaded = false;
+	var scriptInjected = false;
+	var loadButton = function loadButton() {
+	  window.LineIt && window.LineIt.loadButton();
+	};
 
 	var Utils = {
 	  localeToLang: function localeToLang(locale) {
 	    return 'zh-TW' === locale ? 'zh_Hant' : locale;
 	  },
-	  setScript: function setScript(script) {
-	    if (!lineScript) {
-	      lineScript = script;
+	  loadButtons: function loadButtons() {
+	    if (scriptInjected) {
+	      if (scriptLoaded) {
+	        loadButton();
+	      }
+	    } else {
+	      var script = document.createElement('script');
+	      script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
+	      script.type = 'text/javascript';
+	      script.async = true;
+	      script.defer = true;
+	      script.onerror = function (error) {
+	        throw error;
+	      };
+	      script.onload = function () {
+	        scriptLoaded = true;
+	        loadButton();
+	      };
+	      document.body.appendChild(script);
+	      scriptInjected = true;
 	    }
-	  },
-	  getScript: function getScript() {
-	    return lineScript;
 	  }
 	};
 
@@ -22197,19 +22208,12 @@
 	  _createClass(Friend, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      if (!_utils2.default.getScript()) {
-	        var script = document.createElement('script');
-	        script.id = 'recaptcha';
-	        script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
-	        script.type = 'text/javascript';
-	        script.async = true;
-	        script.defer = true;
-	        script.onerror = function (error) {
-	          throw error;
-	        };
-	        document.body.appendChild(script);
-	        _utils2.default.setScript(script);
-	      }
+	      this.componentDidUpdate();
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      _utils2.default.loadButtons();
 	    }
 	  }, {
 	    key: 'render',
@@ -22324,19 +22328,12 @@
 	  _createClass(Like, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      if (!_utils2.default.getScript()) {
-	        var script = document.createElement('script');
-	        script.id = 'recaptcha';
-	        script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
-	        script.type = 'text/javascript';
-	        script.async = true;
-	        script.defer = true;
-	        script.onerror = function (error) {
-	          throw error;
-	        };
-	        document.body.appendChild(script);
-	        _utils2.default.setScript(script);
-	      }
+	      this.componentDidUpdate();
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      _utils2.default.loadButtons();
 	    }
 	  }, {
 	    key: 'render',

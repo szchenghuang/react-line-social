@@ -38,22 +38,12 @@ var Share = function (_React$Component) {
   _createClass(Share, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (!_utils2.default.getScript()) {
-        var script = document.createElement('script');
-        script.id = 'recaptcha';
-        script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
-        script.type = 'text/javascript';
-        script.async = true;
-        script.defer = true;
-        script.onerror = function (error) {
-          throw error;
-        };
-        script.onload = function () {
-          window.LineIt.loadButton();
-        };
-        document.body.appendChild(script);
-        _utils2.default.setScript(script);
-      }
+      this.componentDidUpdate();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      _utils2.default.loadButtons();
     }
   }, {
     key: 'render',

@@ -6,17 +6,10 @@ import Utils from './utils';
 
 class Like extends React.Component {
   componentDidMount() {
-    if ( !Utils.getScript() ) {
-      const script = document.createElement( 'script' );
-      script.id = 'recaptcha';
-      script.src = 'https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js';
-      script.type = 'text/javascript';
-      script.async = true;
-      script.defer = true;
-      script.onerror = function( error ) { throw error; };
-      document.body.appendChild( script );
-      Utils.setScript( script );
-    }
+    this.componentDidUpdate();
+  }
+  componentDidUpdate() {
+    Utils.loadButtons();
   }
   render() {
     const { locale, url, share, lineid } = this.props;
