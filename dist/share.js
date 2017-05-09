@@ -49,12 +49,14 @@ var Share = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _props = this.props,
+          style = _props.style,
+          className = _props.className,
           locale = _props.locale,
           url = _props.url;
 
       return _react2.default.createElement('div', {
-        style: { display: 'none' },
-        className: 'line-it-button',
+        style: Object.assign({}, { display: 'none' }, style),
+        className: 'line-it-button' + (className ? '' : ' ' + className),
         'data-lang': _utils2.default.localeToLang(locale),
         'data-type': 'share-a',
         'data-url': url || location.href });
@@ -65,6 +67,8 @@ var Share = function (_React$Component) {
 }(_react2.default.Component);
 
 Share.propTypes = {
+  style: _propTypes2.default.object,
+  className: _propTypes2.default.string,
   locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
   url: _propTypes2.default.string
 };

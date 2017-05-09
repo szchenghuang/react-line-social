@@ -51,14 +51,16 @@ var Friend = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _props = this.props,
+          style = _props.style,
+          className = _props.className,
           locale = _props.locale,
           lineid = _props.lineid,
           count = _props.count,
           home = _props.home;
 
       return _react2.default.createElement('div', _extends({
-        style: { display: 'none' },
-        className: 'line-it-button',
+        style: Object.assign({}, { display: 'none' }, style),
+        className: 'line-it-button' + (className ? '' : ' ' + className),
         'data-lang': _utils2.default.localeToLang(locale),
         'data-type': 'friend',
         'data-lineid': lineid
@@ -70,8 +72,10 @@ var Friend = function (_React$Component) {
 }(_react2.default.Component);
 
 Friend.propTypes = {
-  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
+  style: _propTypes2.default.object,
+  className: _propTypes2.default.string,
   lineid: _propTypes2.default.string.isRequired,
+  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
   count: _propTypes2.default.bool,
   home: _propTypes2.default.bool
 };

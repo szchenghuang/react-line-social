@@ -12,11 +12,11 @@ class Friend extends React.Component {
     Utils.loadButtons();
   }
   render() {
-    const { locale, lineid, count, home } = this.props;
+    const { style, className, locale, lineid, count, home } = this.props;
     return (
       <div
-        style={ { display: 'none' } }
-        className="line-it-button"
+        style={ Object.assign( {}, { display: 'none' }, style ) }
+        className={ 'line-it-button' + ( className ? '' : ' ' + className ) }
         data-lang={ Utils.localeToLang( locale ) }
         data-type="friend"
         data-lineid={ lineid }
@@ -27,8 +27,10 @@ class Friend extends React.Component {
 }
 
 Friend.propTypes = {
-  locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
+  style: PropTypes.object,
+  className: PropTypes.string,
   lineid: PropTypes.string.isRequired,
+  locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
   count: PropTypes.bool,
   home: PropTypes.bool
 };

@@ -10,7 +10,7 @@ Line social plugins in React.
 npm install react-line-social --save
 ```
 
-## Usage and Configuration ##
+## Usage ##
 
 ```js
 import { Share, Friend, Like } from 'react-line-social';
@@ -32,8 +32,29 @@ import Like from 'react-line-social/like';
 <Like lineid="@lineteamjp" />
 ```
 
-## Configuration ##
-`Share` and `Like` components accept an optional `url` prop. When `url` is absent, `window.location.href` will be referenced.
+## Props ##
+
+#### Share ####
+* _style_ - Object.
+* _className_ - String.
+* _locale_ - '**en**' | '**ja**' | '**zh-TW**' | '**th**' | '**id**'. Defaut: `zh-TW`.
+* _url_ - String. Default: `window.location.href`.
+
+#### Friend ####
+* _style_ - Object.
+* _className_ - String.
+* _lineid_ - String. **Required**.
+* _locale_ - '**en**' | '**ja**' | '**zh-TW**' | '**th**' | '**id**'. Defaut: `zh-TW`.
+* _count_ - Boolean.
+* _home_ - Boolean.
+
+#### Like ####
+* _style_ - Object.
+* _className_ - String.
+* _lineid_ - String.
+* _locale_ - '**en**' | '**ja**' | '**zh-TW**' | '**th**' | '**id**'. Defaut: `zh-TW`.
+* _share_ - Boolean.
+* _url_ - String. Default: `window.location.href`.
 
 ## License ##
 

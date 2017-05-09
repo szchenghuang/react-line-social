@@ -12,11 +12,11 @@ class Like extends React.Component {
     Utils.loadButtons();
   }
   render() {
-    const { locale, url, share, lineid } = this.props;
+    const { style, className, locale, url, share, lineid } = this.props;
     return (
       <div
-        style={ { display: 'none' } }
-        className="line-it-button"
+        style={ Object.assign( {}, { display: 'none' }, style ) }
+        className={ 'line-it-button' + ( className ? '' : ' ' + className ) }
         data-lang={ Utils.localeToLang( locale ) }
         data-type="like"
         data-url={ url || location.href }
@@ -27,9 +27,11 @@ class Like extends React.Component {
 }
 
 Like.propTypes = {
+  style: PropTypes.object,
+  className: PropTypes.string,
+  lineid: PropTypes.string,
   locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
   share: PropTypes.bool,
-  lineid: PropTypes.string,
   url: PropTypes.string
 };
 

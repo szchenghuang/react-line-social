@@ -12,11 +12,11 @@ class Share extends React.Component {
     Utils.loadButtons();
   }
   render() {
-    const { locale, url } = this.props;
+    const { style, className, locale, url } = this.props;
     return (
       <div
-        style={ { display: 'none' } }
-        className="line-it-button"
+        style={ Object.assign( {}, { display: 'none' }, style ) }
+        className={ 'line-it-button' + ( className ? '' : ' ' + className ) }
         data-lang={ Utils.localeToLang( locale ) }
         data-type="share-a"
         data-url={ url || location.href } />
@@ -25,6 +25,8 @@ class Share extends React.Component {
 }
 
 Share.propTypes = {
+  style: PropTypes.object,
+  className: PropTypes.string,
   locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
   url: PropTypes.string
 };

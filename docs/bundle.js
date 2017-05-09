@@ -21962,12 +21962,14 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props,
+	          style = _props.style,
+	          className = _props.className,
 	          locale = _props.locale,
 	          url = _props.url;
 
 	      return _react2.default.createElement('div', {
-	        style: { display: 'none' },
-	        className: 'line-it-button',
+	        style: Object.assign({}, { display: 'none' }, style),
+	        className: 'line-it-button' + (className ? '' : ' ' + className),
 	        'data-lang': _utils2.default.localeToLang(locale),
 	        'data-type': 'share-a',
 	        'data-url': url || location.href });
@@ -21978,6 +21980,8 @@
 	}(_react2.default.Component);
 
 	Share.propTypes = {
+	  style: _propTypes2.default.object,
+	  className: _propTypes2.default.string,
 	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
 	  url: _propTypes2.default.string
 	};
@@ -22219,14 +22223,16 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props,
+	          style = _props.style,
+	          className = _props.className,
 	          locale = _props.locale,
 	          lineid = _props.lineid,
 	          count = _props.count,
 	          home = _props.home;
 
 	      return _react2.default.createElement('div', _extends({
-	        style: { display: 'none' },
-	        className: 'line-it-button',
+	        style: Object.assign({}, { display: 'none' }, style),
+	        className: 'line-it-button' + (className ? '' : ' ' + className),
 	        'data-lang': _utils2.default.localeToLang(locale),
 	        'data-type': 'friend',
 	        'data-lineid': lineid
@@ -22238,8 +22244,10 @@
 	}(_react2.default.Component);
 
 	Friend.propTypes = {
-	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
+	  style: _propTypes2.default.object,
+	  className: _propTypes2.default.string,
 	  lineid: _propTypes2.default.string.isRequired,
+	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
 	  count: _propTypes2.default.bool,
 	  home: _propTypes2.default.bool
 	};
@@ -22339,14 +22347,16 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props,
+	          style = _props.style,
+	          className = _props.className,
 	          locale = _props.locale,
 	          url = _props.url,
 	          share = _props.share,
 	          lineid = _props.lineid;
 
 	      return _react2.default.createElement('div', _extends({
-	        style: { display: 'none' },
-	        className: 'line-it-button',
+	        style: Object.assign({}, { display: 'none' }, style),
+	        className: 'line-it-button' + (className ? '' : ' ' + className),
 	        'data-lang': _utils2.default.localeToLang(locale),
 	        'data-type': 'like',
 	        'data-url': url || location.href
@@ -22358,9 +22368,11 @@
 	}(_react2.default.Component);
 
 	Like.propTypes = {
+	  style: _propTypes2.default.object,
+	  className: _propTypes2.default.string,
+	  lineid: _propTypes2.default.string,
 	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
 	  share: _propTypes2.default.bool,
-	  lineid: _propTypes2.default.string,
 	  url: _propTypes2.default.string
 	};
 
