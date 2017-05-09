@@ -21964,15 +21964,16 @@
 	      var _props = this.props,
 	          style = _props.style,
 	          className = _props.className,
-	          locale = _props.locale,
-	          url = _props.url;
+	          locale = _props.locale;
+
+	      var url = _utils2.default.fixUrl(this.props.url);
 
 	      return _react2.default.createElement('div', {
 	        style: Object.assign({}, { display: 'none' }, style),
 	        className: 'line-it-button' + (className ? '' : ' ' + className),
 	        'data-lang': _utils2.default.localeToLang(locale),
 	        'data-type': 'share-a',
-	        'data-url': url || location.href });
+	        'data-url': url });
 	    }
 	  }]);
 
@@ -22128,6 +22129,15 @@
 	      };
 	      document.body.appendChild(script);
 	      scriptInjected = true;
+	    }
+	  },
+	  fixUrl: function fixUrl(url) {
+	    if (!url) {
+	      if (window) {
+	        return window.location.href;
+	      }
+
+	      throw 'url is required';
 	    }
 	  }
 	};
@@ -22350,16 +22360,17 @@
 	          style = _props.style,
 	          className = _props.className,
 	          locale = _props.locale,
-	          url = _props.url,
 	          share = _props.share,
 	          lineid = _props.lineid;
+
+	      var url = _utils2.default.fixUrl(this.props.url);
 
 	      return _react2.default.createElement('div', _extends({
 	        style: Object.assign({}, { display: 'none' }, style),
 	        className: 'line-it-button' + (className ? '' : ' ' + className),
 	        'data-lang': _utils2.default.localeToLang(locale),
 	        'data-type': 'like',
-	        'data-url': url || location.href
+	        'data-url': url
 	      }, share && { 'data-share': 'true' }, lineid && { 'data-lineid': lineid }));
 	    }
 	  }]);

@@ -34,6 +34,15 @@ var Utils = {
       document.body.appendChild(script);
       scriptInjected = true;
     }
+  },
+  fixUrl: function fixUrl(url) {
+    if (!url) {
+      if (window) {
+        return window.location.href;
+      }
+
+      throw 'url is required';
+    }
   }
 };
 
