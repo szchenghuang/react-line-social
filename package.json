@@ -1,7 +1,7 @@
 {
   "name": "react-line-social",
   "author": "szchenghuang <szchenghuang@gmail.com>",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Line Social Plugins in React",
   "main": "index.js",
   "keywords": [
