@@ -21,6 +21,7 @@ import Friend from 'react-line-social/friend';
 import Like from 'react-line-social/like';
 
 <Share />
+<Share type='share-b' />
 
 <Friend lineid="@lineteamjp" />
 <Friend lineid="@lineteamjp" count />
@@ -38,6 +39,7 @@ import Like from 'react-line-social/like';
 * _style_ - Object.
 * _className_ - String.
 * _locale_ - '**en**' | '**ja**' | '**zh-TW**' | '**th**' | '**id**'. Defaut: `zh-TW`.
+* _type_ - '**share-a**' | '**share-b' | '**share-c**' | '**share-d**' | '**share-e**'. Defaut: `share-a`.
 * _url_ - String. Default: `window.location.href`.
 
 #### Friend ####

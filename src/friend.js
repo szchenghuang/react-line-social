@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Utils from './utils';
+import CONSTS from './consts';
 
 class Friend extends React.Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ Friend.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   lineid: PropTypes.string.isRequired,
-  locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
+  locale: PropTypes.oneOf( CONSTS.LOCALES ),
   count: PropTypes.bool,
   home: PropTypes.bool
 };

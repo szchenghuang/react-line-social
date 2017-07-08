@@ -9,7 +9,8 @@ window.onload = () => {
     <div>
       <div>
         <h3>Share</h3>
-        <Share />
+        <Share /><br />
+        <Share type="share-b" />
       </div>
       <div>
         <h3>Friend</h3>

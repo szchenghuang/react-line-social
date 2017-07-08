@@ -77,7 +77,9 @@
 	        null,
 	        'Share'
 	      ),
-	      _react2.default.createElement(_.Share, null)
+	      _react2.default.createElement(_.Share, null),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(_.Share, { type: 'share-b' })
 	    ),
 	    _react2.default.createElement(
 	      'div',
@@ -21864,11 +21866,11 @@
 
 	var _share2 = _interopRequireDefault(_share);
 
-	var _friend = __webpack_require__(189);
+	var _friend = __webpack_require__(190);
 
 	var _friend2 = _interopRequireDefault(_friend);
 
-	var _like = __webpack_require__(190);
+	var _like = __webpack_require__(191);
 
 	var _like2 = _interopRequireDefault(_like);
 
@@ -21917,6 +21919,10 @@
 
 	var _utils2 = _interopRequireDefault(_utils);
 
+	var _consts = __webpack_require__(189);
+
+	var _consts2 = _interopRequireDefault(_consts);
+
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -21964,7 +21970,8 @@
 	      var _props = this.props,
 	          style = _props.style,
 	          className = _props.className,
-	          locale = _props.locale;
+	          locale = _props.locale,
+	          type = _props.type;
 
 	      var url = _utils2.default.fixUrl(this.props.url);
 
@@ -21972,7 +21979,7 @@
 	        style: Object.assign({}, { display: 'none' }, style),
 	        className: 'line-it-button' + (className ? '' : ' ' + className),
 	        'data-lang': _utils2.default.localeToLang(locale),
-	        'data-type': 'share-a',
+	        'data-type': type,
 	        'data-url': url });
 	    }
 	  }]);
@@ -21983,12 +21990,14 @@
 	Share.propTypes = {
 	  style: _propTypes2.default.object,
 	  className: _propTypes2.default.string,
-	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
+	  locale: _propTypes2.default.oneOf(_consts2.default.LOCALES),
+	  type: _propTypes2.default.oneOf(_consts2.default.TYPES),
 	  url: _propTypes2.default.string
 	};
 
 	Share.defaultProps = {
-	  locale: 'zh-TW'
+	  locale: 'zh-TW',
+	  type: 'share-a'
 	};
 
 	exports.default = Share;
@@ -22146,6 +22155,22 @@
 
 /***/ }),
 /* 189 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var CONSTS = {
+	  LOCALES: ['en', 'ja', 'zh-TW', 'th', 'id'],
+	  TYPES: ['share-a', 'share-b', 'share-c', 'share-d', 'share-e']
+	};
+
+	exports.default = CONSTS;
+
+/***/ }),
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22187,6 +22212,10 @@
 	var _utils = __webpack_require__(188);
 
 	var _utils2 = _interopRequireDefault(_utils);
+
+	var _consts = __webpack_require__(189);
+
+	var _consts2 = _interopRequireDefault(_consts);
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -22257,7 +22286,7 @@
 	  style: _propTypes2.default.object,
 	  className: _propTypes2.default.string,
 	  lineid: _propTypes2.default.string.isRequired,
-	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
+	  locale: _propTypes2.default.oneOf(_consts2.default.LOCALES),
 	  count: _propTypes2.default.bool,
 	  home: _propTypes2.default.bool
 	};
@@ -22269,7 +22298,7 @@
 	exports.default = Friend;
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22311,6 +22340,10 @@
 	var _utils = __webpack_require__(188);
 
 	var _utils2 = _interopRequireDefault(_utils);
+
+	var _consts = __webpack_require__(189);
+
+	var _consts2 = _interopRequireDefault(_consts);
 
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -22382,7 +22415,7 @@
 	  style: _propTypes2.default.object,
 	  className: _propTypes2.default.string,
 	  lineid: _propTypes2.default.string,
-	  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
+	  locale: _propTypes2.default.oneOf(_consts2.default.LOCALES),
 	  share: _propTypes2.default.bool,
 	  url: _propTypes2.default.string
 	};

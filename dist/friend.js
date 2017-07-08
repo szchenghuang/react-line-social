@@ -20,6 +20,10 @@ var _utils = require('./utils');
 
 var _utils2 = _interopRequireDefault(_utils);
 
+var _consts = require('./consts');
+
+var _consts2 = _interopRequireDefault(_consts);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75,7 +79,7 @@ Friend.propTypes = {
   style: _propTypes2.default.object,
   className: _propTypes2.default.string,
   lineid: _propTypes2.default.string.isRequired,
-  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
+  locale: _propTypes2.default.oneOf(_consts2.default.LOCALES),
   count: _propTypes2.default.bool,
   home: _propTypes2.default.bool
 };

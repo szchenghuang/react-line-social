@@ -18,6 +18,10 @@ var _utils = require('./utils');
 
 var _utils2 = _interopRequireDefault(_utils);
 
+var _consts = require('./consts');
+
+var _consts2 = _interopRequireDefault(_consts);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51,7 +55,8 @@ var Share = function (_React$Component) {
       var _props = this.props,
           style = _props.style,
           className = _props.className,
-          locale = _props.locale;
+          locale = _props.locale,
+          type = _props.type;
 
       var url = _utils2.default.fixUrl(this.props.url);
 
@@ -59,7 +64,7 @@ var Share = function (_React$Component) {
         style: Object.assign({}, { display: 'none' }, style),
         className: 'line-it-button' + (className ? '' : ' ' + className),
         'data-lang': _utils2.default.localeToLang(locale),
-        'data-type': 'share-a',
+        'data-type': type,
         'data-url': url });
     }
   }]);
@@ -70,12 +75,14 @@ var Share = function (_React$Component) {
 Share.propTypes = {
   style: _propTypes2.default.object,
   className: _propTypes2.default.string,
-  locale: _propTypes2.default.oneOf(['en', 'ja', 'zh-TW', 'th', 'id']),
+  locale: _propTypes2.default.oneOf(_consts2.default.LOCALES),
+  type: _propTypes2.default.oneOf(_consts2.default.TYPES),
   url: _propTypes2.default.string
 };
 
 Share.defaultProps = {
-  locale: 'zh-TW'
+  locale: 'zh-TW',
+  type: 'share-a'
 };
 
 exports.default = Share;

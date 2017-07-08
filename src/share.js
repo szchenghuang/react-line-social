@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Utils from './utils';
+import CONSTS from './consts';
 
 class Share extends React.Component {
   componentDidMount() {
@@ -12,7 +13,7 @@ class Share extends React.Component {
     Utils.loadButtons();
   }
   render() {
-    const { style, className, locale } = this.props;
+    const { style, className, locale, type } = this.props;
     const url = Utils.fixUrl( this.props.url );
 
     return (
@@ -20,7 +21,7 @@ class Share extends React.Component {
         style={ Object.assign( {}, { display: 'none' }, style ) }
         className={ 'line-it-button' + ( className ? '' : ' ' + className ) }
         data-lang={ Utils.localeToLang( locale ) }
-        data-type="share-a"
+        data-type={ type }
         data-url={ url } />
     );
   }
@@ -29,12 +30,14 @@ class Share extends React.Component {
 Share.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
-  locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
+  locale: PropTypes.oneOf( CONSTS.LOCALES ),
+  type: PropTypes.oneOf( CONSTS.TYPES ),
   url: PropTypes.string
 };
 
 Share.defaultProps = {
-  locale: 'zh-TW'
+  locale: 'zh-TW',
+  type: 'share-a'
 };
 
 export default Share;

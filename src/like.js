@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Utils from './utils';
+import CONSTS from './consts';
 
 class Like extends React.Component {
   componentDidMount() {
@@ -32,7 +33,7 @@ Like.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   lineid: PropTypes.string,
-  locale: PropTypes.oneOf( [ 'en', 'ja', 'zh-TW', 'th', 'id' ] ),
+  locale: PropTypes.oneOf( CONSTS.LOCALES ),
   share: PropTypes.bool,
   url: PropTypes.string
 };
