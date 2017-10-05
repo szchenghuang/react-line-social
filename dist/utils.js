@@ -36,13 +36,15 @@ var Utils = {
     }
   },
   fixUrl: function fixUrl(url) {
-    if (!url) {
-      if (window) {
-        return window.location.href;
-      }
-
-      throw 'url is required';
+    if (url) {
+      return url;
     }
+
+    if (window) {
+      return window.location.href;
+    }
+
+    throw 'url is required';
   }
 };
 
